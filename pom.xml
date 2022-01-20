@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.2</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>de.mydomain.drools</groupId>
+    <artifactId>boot-drools</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>boot-drools</name>
+    <description>Spring Boot and Drools</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <kie.version>7.53.0.Final</kie.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- org.drools:drools-core: Drools rule engine implementation -->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+            <version>${kie.version}</version>
+        </dependency>
+        <!-- org.kie:kie-spring:
+            Contains org.kie:kie-api, org.drools:drools-compiler, jbpm and spring related dependencies -->
+        <!-- org.kie:kie-api :
+            Contains all the public interfaces exposed by the KIE Platform, which is composed by Drools, jBPM, and OptaPlanner -->
+        <!-- org.drools:drools-compiler:
+            Contains the algorithm to translate the rules written in different resources (text files, spreadsheets, your own types, and so on) to executable rules.
+            This artifact is required only because we are compiling our rules in the project. It is possible to separate the rules compilation from the rules
+            execution to remove this dependency from our project; however, for the sake of simplicity, we are going to compile our rules in the same project.-->
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-spring</artifactId>
+            <version>${kie.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
